@@ -7,6 +7,8 @@ spring:
   config:
     activate:
       on-profile: "!kubernetes"
+    import:
+      - optional:configserver:http://localhost:1000/configuration
   cloud:
     config:
       enabled: true
@@ -22,12 +24,3 @@ spring:
   cloud:
     config:
       enabled: false
-    kubernetes:
-      config:
-        enabled: true
-        fail-fast: true
-        namespace: quizmeup
-        include-profile-specific-sources: false
-        sources:
-          - name: administration-server-config-map
-            namespace: quizmeup
