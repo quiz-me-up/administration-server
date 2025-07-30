@@ -1,7 +1,32 @@
 spring:
   application:
     name: administration-server-application
+
+---
+spring:
+  config:
+    activate:
+      on-profile: "!kubernetes"
   cloud:
     config:
-      uri: http://localhost:1000
+      enabled: true
       fail-fast: true
+      name: ${spring.application.name}
+      uri: http://localhost:1000/configuration
+
+---
+spring:
+  config:
+    activate:
+      on-profile: kubernetes
+  cloud:
+    config:
+      enabled: false
+    kubernetes:
+      config:
+        enabled: true
+        fail-fast: true
+        namespace: quizmeup
+        sources:
+          - name: administration-server-config-map
+            namespace: quizmeup
