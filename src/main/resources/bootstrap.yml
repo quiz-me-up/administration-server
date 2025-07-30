@@ -27,6 +27,7 @@ spring:
         enabled: true
         fail-fast: true
         namespace: quizmeup
+        include-profile-specific-sources: false
         sources:
           - name: administration-server-config-map
             namespace: quizmeup
