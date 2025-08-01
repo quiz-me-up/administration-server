@@ -7,8 +7,6 @@ spring:
   config:
     activate:
       on-profile: "!kubernetes"
-    import:
-      - optional:configserver:http://localhost:1000/configuration
   cloud:
     config:
       enabled: true
