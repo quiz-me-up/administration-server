@@ -15,12 +15,3 @@ spring:
       fail-fast: true
       name: ${spring.application.name}
       uri: http://localhost:1000/configuration
-
----
-spring:
-  config:
-    activate:
-      on-profile: kubernetes
-  cloud:
-    config:
-      enabled: false
